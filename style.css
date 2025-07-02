@@ -42,19 +42,16 @@ header nav {
     padding: 0 20px;
     text-align: center;
   }
-  /* Product grid 2 products per line with horizontal scroll */
+  /* Product grid 2 products per line stacked vertically */
   .product-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     padding: 20px 10px;
-  }
-  .card {
-    min-width: 45%;
+    overflow-x: visible;
   }
   .card img {
-    height: 300px;
+    height: 250px;
   }
   .card-content h3 {
     white-space: normal;
@@ -67,6 +64,15 @@ header nav {
   }
   nav.show a {
     text-align: center;
+  }
+  /* Improved search input styling */
+  #searchInput {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #999;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
   }
 }
 
@@ -110,7 +116,7 @@ header nav {
   header nav {
     order: 2;
     width: 100%;
-    margin-left: 20;
+    margin-left: 0;
   }
 }
 
