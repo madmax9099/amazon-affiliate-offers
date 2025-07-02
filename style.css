@@ -103,4 +103,53 @@ footer {
   .hero p {
     font-size: 1rem;
   }
+
+  /* Hamburger menu styles */
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #232f3e;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  nav a {
+    margin: 10px 0;
+    padding: 10px 20px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  /* Product grid 2 products per line */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  /* Search input small size */
+  .search-container {
+    padding: 10px 20px;
+  }
+
+  #searchInput {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 }
