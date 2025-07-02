@@ -58,7 +58,7 @@ function setupPagination() {
   const nextButton = document.createElement("button");
   nextButton.textContent = "Next Page";
   nextButton.style.margin = "20px 10px";
-  nextButton.style.display = "block";
+  nextButton.style.display = "none";
   nextButton.style.padding = "10px 20px";
   nextButton.style.backgroundColor = "#ff9900";
   nextButton.style.color = "#fff";
@@ -70,7 +70,7 @@ function setupPagination() {
     if (currentPage > 1) {
       currentPage--;
       updateDisplay();
-      nextButton.style.display = "block";
+      nextButton.style.display = "inline-block";
       if (currentPage === 1) {
         prevButton.style.display = "none";
       }
@@ -81,7 +81,7 @@ function setupPagination() {
     if (currentPage * productsPerPage < filteredProducts.length) {
       currentPage++;
       updateDisplay();
-      prevButton.style.display = "block";
+      prevButton.style.display = "inline-block";
       if (currentPage * productsPerPage >= filteredProducts.length) {
         nextButton.style.display = "none";
       }
@@ -90,9 +90,15 @@ function setupPagination() {
 
   container.parentNode.insertBefore(prevButton, container.nextSibling);
   container.parentNode.insertBefore(nextButton, container.nextSibling);
-  if (filteredProducts.length <= productsPerPage) {
+
+  // Initial display logic for buttons
+  if (filteredProducts.length > productsPerPage) {
+    nextButton.style.display = "inline-block";
+  } else {
     nextButton.style.display = "none";
   }
+  prevButton.style.display = "none";
+
   return { prevButton, nextButton };
 }
 
