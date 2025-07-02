@@ -16,6 +16,30 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Desktop product grid 6 products per line */
+@media(min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Fix search input container positioning */
+.search-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Adjust hero section height on mobile */
+@media(max-width: 600px) {
+  .hero {
+    padding: 30px 20px;
+  }
+}
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
