@@ -126,6 +126,7 @@ fetch('products.json')
     setProductsPerPage();
     updateDisplay();
     nextButton = setupPagination();
+    applyResponsiveStyles();
   });
 
 searchInput.addEventListener("input", () => {
@@ -148,4 +149,31 @@ window.addEventListener("resize", () => {
       nextButton.style.display = "none";
     }
   }
+  applyResponsiveStyles();
 });
+
+function applyResponsiveStyles() {
+  if (window.innerWidth <= 600) {
+    container.style.display = "grid";
+    container.style.gridTemplateColumns = "repeat(2, 1fr)";
+    container.style.gap = "15px";
+    searchInput.style.width = "100%";
+    searchInput.style.padding = "10px 15px";
+    searchInput.style.fontSize = "1rem";
+    searchInput.style.borderRadius = "8px";
+    searchInput.style.border = "1px solid #999";
+    searchInput.style.boxShadow = "0 0 5px rgba(0,0,0,0.1)";
+  } else {
+    container.style.display = "flex";
+    container.style.flexWrap = "nowrap";
+    container.style.overflowX = "auto";
+    container.style.gap = "20px";
+    container.style.padding = "20px 10px";
+    searchInput.style.width = "auto";
+    searchInput.style.padding = "";
+    searchInput.style.fontSize = "";
+    searchInput.style.borderRadius = "";
+    searchInput.style.border = "";
+    searchInput.style.boxShadow = "";
+  }
+}
