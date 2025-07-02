@@ -76,11 +76,22 @@ header nav {
   }
   header {
     flex-wrap: wrap;
+    position: relative;
   }
   header nav {
     order: 2;
     width: 100%;
     margin-left: 0;
+  }
+  .hamburger {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+  }
+  /* Reduce product grid height on mobile */
+  .product-grid {
+    max-height: 450px;
+    overflow-y: auto;
   }
 }
 
