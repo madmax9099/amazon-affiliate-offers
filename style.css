@@ -17,10 +17,47 @@ header {
   align-items: center;
 }
 
+header nav {
+  margin-left: auto;
+}
+
+@media(min-width: 1024px) {
+  /* Center search input in header on desktop */
+  .search-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0;
+    align-self: center;
+  }
+}
+
+@media(max-width: 600px) {
+  /* Move search input below hero on mobile */
+  .search-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+    order: 1;
+    width: 100%;
+  }
+  header {
+    flex-wrap: wrap;
+  }
+  header nav {
+    order: 2;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 /* Desktop product grid 6 products per line */
 @media(min-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 10px;
   }
   .hamburger {
     display: none;
