@@ -123,9 +123,8 @@ header nav {
 /* Desktop product grid 6 products per line */
 @media(min-width: 1024px) {
   .product-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px 10px;
   }
