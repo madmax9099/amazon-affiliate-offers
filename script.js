@@ -163,6 +163,11 @@ function applyResponsiveStyles() {
     searchInput.style.borderRadius = "8px";
     searchInput.style.border = "1px solid #999";
     searchInput.style.boxShadow = "0 0 5px rgba(0,0,0,0.1)";
+    // Remove min-width from cards on mobile
+    const cards = container.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.style.minWidth = "";
+    });
   } else {
     container.style.display = "flex";
     container.style.flexWrap = "nowrap";
@@ -175,5 +180,10 @@ function applyResponsiveStyles() {
     searchInput.style.borderRadius = "";
     searchInput.style.border = "";
     searchInput.style.boxShadow = "";
+    // Set min-width for cards on desktop to fit 6 per line approximately
+    const cards = container.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.style.minWidth = "16%";
+    });
   }
 }
