@@ -1,4 +1,4 @@
-const productsPerPage = 30;
+let productsPerPage;
 let currentPage = 1;
 let products = [];
 let filteredProducts = [];
@@ -7,6 +7,14 @@ const container = document.getElementById("products");
 const searchInput = document.getElementById("searchInput");
 const hamburger = document.getElementById("hamburger");
 const navbar = document.getElementById("navbar");
+
+function setProductsPerPage() {
+  if (window.innerWidth <= 600) {
+    productsPerPage = 50; // mobile
+  } else {
+    productsPerPage = 40; // desktop
+  }
+}
 
 function displayProducts(productsToDisplay) {
   container.innerHTML = "";
@@ -61,6 +69,7 @@ function setupPagination() {
   if (filteredProducts.length <= productsPerPage) {
     nextButton.style.display = "none";
   }
+  return nextButton;
 }
 
 function filterProducts() {
@@ -77,13 +86,16 @@ function filterProducts() {
   }
 }
 
+let nextButton;
+
 fetch('products.json')
   .then(res => res.json())
   .then(data => {
     products = data;
     filteredProducts = products;
-    displayProducts(paginateProducts());
-    setupPagination();
+    setProductsPerPage();
+    updateDisplay();
+    nextButton = setupPagination();
   });
 
 searchInput.addEventListener("input", () => {
@@ -92,4 +104,18 @@ searchInput.addEventListener("input", () => {
 
 hamburger.addEventListener("click", () => {
   navbar.classList.toggle("show");
+});
+
+window.addEventListener("resize", () => {
+  const oldProductsPerPage = productsPerPage;
+  setProductsPerPage();
+  if (oldProductsPerPage !== productsPerPage) {
+    currentPage = 1;
+    updateDisplay();
+    if (filteredProducts.length > productsPerPage) {
+      nextButton.style.display = "block";
+    } else {
+      nextButton.style.display = "none";
+    }
+  }
 });
