@@ -21,6 +21,40 @@ header nav {
   margin-left: auto;
 }
 
+/* Mobile styles */
+@media(max-width: 600px) {
+  header nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    order: 2;
+  }
+  .search-container {
+    max-width: 600px;
+    margin: 10px auto 20px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+}
+
+/* Desktop styles */
+@media(min-width: 601px) {
+  .hamburger {
+    display: none;
+  }
+  .search-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0;
+    align-self: center;
+    text-align: center;
+  }
+}
+
 @media(min-width: 1024px) {
   /* Center search input in header on desktop */
   .search-container {
