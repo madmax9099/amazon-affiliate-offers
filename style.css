@@ -90,8 +90,13 @@ header nav {
   }
   /* Reduce product grid height on mobile */
   .product-grid {
-    max-height: 450px;
+    max-height: 350px;
     overflow-y: auto;
+  }
+  .card-content h3 {
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding: 0 10px;
   }
 }
 
