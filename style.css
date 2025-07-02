@@ -25,6 +25,20 @@ header {
   .hamburger {
     display: none;
   }
+  /* Search input inside header on desktop */
+  .search-container {
+    max-width: 300px;
+    margin: 0 0 0 20px;
+    padding: 0;
+    align-self: center;
+  }
+  #searchInput {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
 }
 
 /* Fix search input container positioning */
