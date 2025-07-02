@@ -44,9 +44,20 @@ function updateDisplay() {
 }
 
 function setupPagination() {
+  const prevButton = document.createElement("button");
+  prevButton.textContent = "Previous Page";
+  prevButton.style.margin = "20px 10px";
+  prevButton.style.display = "none";
+  prevButton.style.padding = "10px 20px";
+  prevButton.style.backgroundColor = "#ff9900";
+  prevButton.style.color = "#fff";
+  prevButton.style.border = "none";
+  prevButton.style.borderRadius = "5px";
+  prevButton.style.cursor = "pointer";
+
   const nextButton = document.createElement("button");
   nextButton.textContent = "Next Page";
-  nextButton.style.margin = "20px auto";
+  nextButton.style.margin = "20px 10px";
   nextButton.style.display = "block";
   nextButton.style.padding = "10px 20px";
   nextButton.style.backgroundColor = "#ff9900";
@@ -55,21 +66,34 @@ function setupPagination() {
   nextButton.style.borderRadius = "5px";
   nextButton.style.cursor = "pointer";
 
+  prevButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updateDisplay();
+      nextButton.style.display = "block";
+      if (currentPage === 1) {
+        prevButton.style.display = "none";
+      }
+    }
+  });
+
   nextButton.addEventListener("click", () => {
     if (currentPage * productsPerPage < filteredProducts.length) {
       currentPage++;
       updateDisplay();
+      prevButton.style.display = "block";
       if (currentPage * productsPerPage >= filteredProducts.length) {
         nextButton.style.display = "none";
       }
     }
   });
 
+  container.parentNode.insertBefore(prevButton, container.nextSibling);
   container.parentNode.insertBefore(nextButton, container.nextSibling);
   if (filteredProducts.length <= productsPerPage) {
     nextButton.style.display = "none";
   }
-  return nextButton;
+  return { prevButton, nextButton };
 }
 
 function filterProducts() {
