@@ -32,11 +32,37 @@ header nav {
     cursor: pointer;
     color: #fff;
     order: 2;
+    position: absolute;
+    right: 30px;
+    top: 15px;
   }
   .search-container {
     max-width: 600px;
     margin: 10px auto 20px auto;
     padding: 0 20px;
+    text-align: center;
+  }
+  /* Product grid 2 products per line */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px 10px;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+  .card img {
+    height: 300px;
+  }
+  .card-content h3 {
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding: 0 10px;
+  }
+  nav.show {
+    display: flex;
+    justify-content: center;
+  }
+  nav.show a {
     text-align: center;
   }
 }
@@ -65,8 +91,8 @@ header nav {
   }
 }
 
+/* Move search input below hero on mobile */
 @media(max-width: 600px) {
-  /* Move search input below hero on mobile */
   .search-container {
     max-width: 600px;
     margin: 20px auto;
@@ -82,21 +108,6 @@ header nav {
     order: 2;
     width: 100%;
     margin-left: 0;
-  }
-  .hamburger {
-    position: absolute;
-    right: 30px;
-    top: 15px;
-  }
-  /* Reduce product grid height on mobile */
-  .product-grid {
-    max-height: 350px;
-    overflow-y: auto;
-  }
-  .card-content h3 {
-    white-space: normal;
-    overflow-wrap: break-word;
-    padding: 0 10px;
   }
 }
 
