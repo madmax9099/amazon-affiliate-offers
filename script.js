@@ -12,7 +12,7 @@ function setProductsPerPage() {
   if (window.innerWidth <= 600) {
     productsPerPage = 50; // mobile
   } else {
-    productsPerPage = 40; // desktop
+    productsPerPage = 48; // desktop (6 columns * 8 rows)
   }
 }
 
@@ -169,9 +169,9 @@ function applyResponsiveStyles() {
       card.style.minWidth = "";
     });
   } else {
-    container.style.display = "flex";
-    container.style.flexWrap = "nowrap";
-    container.style.overflowX = "auto";
+    container.style.display = "grid";
+    container.style.gridTemplateColumns = "repeat(6, 1fr)";
+    container.style.gridTemplateRows = "repeat(8, auto)";
     container.style.gap = "20px";
     container.style.padding = "20px 10px";
     searchInput.style.width = "auto";
@@ -180,10 +180,10 @@ function applyResponsiveStyles() {
     searchInput.style.borderRadius = "";
     searchInput.style.border = "";
     searchInput.style.boxShadow = "";
-    // Set min-width for cards on desktop to fit 6 per line approximately
+    // Remove min-width for cards on desktop since grid controls layout
     const cards = container.querySelectorAll('.card');
     cards.forEach(card => {
-      card.style.minWidth = "16%";
+      card.style.minWidth = "";
     });
   }
 }
