@@ -245,7 +245,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100px;
+  height: 140px;
 }
 .card-content h3 {
   font-size: 1rem;
