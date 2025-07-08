@@ -127,7 +127,7 @@ header nav {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(8, auto);
-    gap: 20px;
+    gap: 30px;
     padding: 20px 60px;
   }
   .hamburger {
@@ -202,15 +202,15 @@ nav a:hover {
 .product-grid {
   padding: 40px 60px 80px 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-columns: repeat(auto-fill, 220px);
   justify-content: center;
   gap: 30px;
   overflow-x: visible;
   box-sizing: border-box;
 }
 .card {
-  width: 250px;
-  height: 320px;
+  width: 220px;
+  height: 280px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
