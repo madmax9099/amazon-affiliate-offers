@@ -22,7 +22,9 @@ function displayProducts(productsToDisplay) {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.title}">
+      <div class="card-image">
+        <img src="${product.image}" alt="${product.title}">
+      </div>
       <div class="card-content">
         <h3>${product.title}</h3>
         <a href="${product.link}" target="_blank">Buy Now</a>
