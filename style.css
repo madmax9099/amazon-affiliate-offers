@@ -200,7 +200,7 @@ nav a:hover {
   to { transform: translateY(0); opacity: 1; }
 }
 .product-grid {
-  padding: 40px 60px 80px 60px;
+  padding: 40px 60px 120px 60px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 220px);
   justify-content: center;
