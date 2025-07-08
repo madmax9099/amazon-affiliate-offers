@@ -260,6 +260,7 @@ nav a:hover {
   text-decoration: none;
   transition: background 0.3s;
   align-self: center;
+  margin-top: 20px;
 }
 .card-content a:hover {
   background: #e68a00;
