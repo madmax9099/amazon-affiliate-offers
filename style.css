@@ -50,6 +50,12 @@ header nav {
     gap: 15px;
     padding: 20px 10px;
     overflow-x: visible;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .card {
+    width: 100%;
+    max-width: 100%;
   }
   .card img {
     height: 250px;
