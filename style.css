@@ -165,7 +165,25 @@ header nav {
 /* Adjust hero section height on mobile */
 @media(max-width: 600px) {
   .hero {
-    padding: 30px 20px;
+    padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .hero p {
+    font-size: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 .logo {
