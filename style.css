@@ -51,28 +51,27 @@ header nav {
     padding: 0 20px;
     text-align: center;
   }
-  /* Product grid 2 products per line stacked vertically */
+  /* Product grid responsive for mobile */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, auto);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 15px;
-    padding: 20px 0;
+    padding: 10px 10px;
     overflow-x: hidden;
     max-width: 100%;
     box-sizing: border-box;
     animation: fadeInUp 0.6s ease forwards;
-    zoom: 0.99;
   }
   .card {
     width: 100%;
     max-width: 100%;
+    height: auto;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
   }
   .card img {
-    height: 250px;
+    height: 200px;
   }
   .card-content h3 {
     white-space: normal;
