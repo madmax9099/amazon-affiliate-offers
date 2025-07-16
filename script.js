@@ -12,15 +12,16 @@ function setProductsPerPage() {
   if (window.innerWidth <= 600) {
     productsPerPage = 50; // mobile
   } else {
-    productsPerPage = 48; // desktop (6 columns * 8 rows)
+    productsPerPage = 100; // desktop
   }
 }
 
 function displayProducts(productsToDisplay) {
   container.innerHTML = "";
-  productsToDisplay.forEach(product => {
+  productsToDisplay.forEach((product, index) => {
     const card = document.createElement("div");
     card.className = "card";
+    card.style.animationDelay = `${index * 0.05}s`; // stagger animation
     card.innerHTML = `
       <div class="card-image">
         <img src="${product.image}" alt="${product.title}">
@@ -34,6 +35,7 @@ function displayProducts(productsToDisplay) {
   });
 }
 
+// rest of the code remains unchanged
 function paginateProducts() {
   const start = (currentPage - 1) * productsPerPage;
   const end = start + productsPerPage;
@@ -173,9 +175,9 @@ function applyResponsiveStyles() {
   } else {
     container.style.display = "grid";
     container.style.gridTemplateColumns = "repeat(6, 1fr)";
-    container.style.gridTemplateRows = "repeat(8, auto)";
-    container.style.gap = "20px";
-    container.style.padding = "20px 10px";
+    container.style.gridTemplateRows = "repeat(6, auto)";
+    container.style.gap = "30px";
+    container.style.padding = "20px 60px";
     searchInput.style.width = "auto";
     searchInput.style.padding = "";
     searchInput.style.fontSize = "";
