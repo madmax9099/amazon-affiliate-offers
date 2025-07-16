@@ -12,7 +12,7 @@ function setProductsPerPage() {
   if (window.innerWidth <= 600) {
     productsPerPage = 50; // mobile
   } else {
-    productsPerPage = 100; // desktop
+    productsPerPage = 16; // desktop 4*4 grid
   }
 }
 
