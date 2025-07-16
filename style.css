@@ -50,10 +50,11 @@ header nav {
     grid-template-rows: repeat(6, auto);
     gap: 15px;
     padding: 20px 10px;
-    overflow-x: visible;
+    overflow-x: hidden;
     max-width: 100%;
     box-sizing: border-box;
     animation: fadeInUp 0.6s ease forwards;
+    zoom: 0.99;
   }
   .card {
     width: 100%;
