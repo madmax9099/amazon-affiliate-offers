@@ -75,33 +75,73 @@ header nav {
     padding: 0 20px;
     text-align: center;
   }
-  /* Product grid responsive for mobile */
+ .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  overflow-x: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Card styling */
+.card {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card image styling */
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card content */
+.card-content h3 {
+  white-space: normal;
+  word-break: break-word;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+}
+
+/* Responsive improvements for smaller devices */
+@media (max-width: 480px) {
   .product-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    padding: 10px 10px;
-    overflow-x: hidden;
-    max-width: 100%;
-    box-sizing: border-box;
-    animation: fadeInUp 0.6s ease forwards;
+    gap: 10px;
+    padding: 8px;
   }
-  .card {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-  }
+
   .card img {
-    height: 200px;
+    max-height: 150px;
   }
+
   .card-content h3 {
-    white-space: normal;
-    overflow-wrap: break-word;
-    padding: 0 10px;
+    font-size: 14px;
+    padding: 8px;
   }
+}
+
+
   nav.show {
     display: flex;
     justify-content: center;
