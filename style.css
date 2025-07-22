@@ -1,46 +1,18 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html {
+
+html, body {
   overflow-x: hidden;
-}
-body {
   font-family: 'Segoe UI', sans-serif;
   background: #f2f4f8;
   color: #333;
-  overflow-x: hidden;
 }
-@media(max-width: 600px) {
-  .product-grid {
-    max-width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 10px 10px;
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
-  .card-content a {
-    background: #ff9900;
-    color: #fff;
-    padding: 10px 18px;
-    display: inline-block;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: background 0.3s;
-    align-self: center;
-    margin-top: 15px;
-    font-weight: 600;
-    font-size: 1rem;
-    width: 100%;
-    text-align: center;
-  }
-  .card-content a:hover {
-    background: #e68a00;
-  }
-}
+
+/* Header */
 header {
   background: #232f3e;
   color: #fff;
@@ -54,43 +26,143 @@ header nav {
   margin-left: auto;
 }
 
-/* Mobile styles */
-@media(max-width: 600px) {
-  header nav {
-    display: none;
-  }
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff9900;
+}
+
+/* Hamburger (Mobile only) */
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 600px) {
   .hamburger {
     display: block;
     font-size: 2rem;
     cursor: pointer;
     color: #fff;
-    order: 2;
     position: absolute;
     right: 30px;
     top: 15px;
+    z-index: 10;
   }
-  .search-container {
-    max-width: 600px;
-    margin: 10px auto 20px auto;
-    padding: 0 20px;
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    background-color: #232f3e;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav.show a {
     text-align: center;
+    padding: 10px 20px;
   }
- .product-grid {
+}
+
+/* Search Bar */
+.search-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #999;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 601px) {
+  .search-container {
+    max-width: 300px;
+    margin: 0 0 0 20px;
+    padding: 0;
+    align-self: center;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #ffd700, #ff9900);
+  padding: 60px 20px;
+  text-align: center;
+  color: #232f3e;
+  animation: slideDown 1s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 20px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Product Grid */
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 15px;
   padding: 10px;
-  overflow-x: hidden;
   max-width: 100%;
-  box-sizing: border-box;
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Card styling */
+/* Desktop Specific Grid (More columns) */
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: 340px;
+    gap: 30px;
+    padding: 30px 40px;
+    justify-content: center;
+  }
+}
+
+/* Card Styles */
 .card {
   width: 100%;
-  max-width: 100%;
-  height: auto;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -105,7 +177,7 @@ header nav {
   transform: translateY(-5px);
 }
 
-/* Card image styling */
+/* Card Image */
 .card img {
   width: 100%;
   height: auto;
@@ -114,16 +186,38 @@ header nav {
   display: block;
 }
 
-/* Card content */
+/* Card Content */
+.card-content {
+  padding: 10px;
+  text-align: center;
+}
+
 .card-content h3 {
   white-space: normal;
   word-break: break-word;
   font-size: 16px;
-  padding: 10px;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
-/* Responsive improvements for smaller devices */
+.card-content a {
+  background: #ff9900;
+  color: #fff;
+  padding: 10px 18px;
+  display: inline-block;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.card-content a:hover {
+  background: #e68a00;
+}
+
+/* Smaller Devices */
 @media (max-width: 480px) {
   .product-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -137,119 +231,12 @@ header nav {
 
   .card-content h3 {
     font-size: 14px;
-    padding: 8px;
-  }
-}
-
-
-  nav.show {
-    display: flex;
-    justify-content: center;
-  }
-  nav.show a {
-    text-align: center;
-  }
-  /* Improved search input styling */
-  #searchInput {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #999;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  }
-}
-
-/* Desktop styles */
-@media(min-width: 601px) {
-  .hamburger {
-    display: none;
-  }
-  .search-container {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 0;
-    align-self: center;
-    text-align: center;
-  }
-}
-
-/* Desktop product grid 6 products per line and 6 rows */
-@media(min-width: 1024px) {
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-auto-rows: 340px;
-    gap: 30px;
-    padding: 30px 40px;
-    animation: fadeInUp 0.6s ease forwards;
-    overflow-x: hidden;
-    justify-content: center;
-  }
-  .card {
-    width: 100%;
-    height: 340px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-  }
-  /* Search input inside header on desktop */
-  .search-container {
-    max-width: 300px;
-    margin: 0 0 0 20px;
-    padding: 0;
-    align-self: center;
-  }
-}
-
-/* Fix search input container positioning */
-.search-container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-/* Adjust hero section height on mobile */
-@media(max-width: 600px) {
-  .hero {
-    padding: 20px 15px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
+    padding: 0 5px;
   }
 
-  /* Hamburger menu styles */
-  .hamburger {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fff;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    background-color: #232f3e;
-    position: absolute;
-    top: 60px;
-    right: 30px;
-    width: 150px;
-    border-radius: 5px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  }
-
-  nav a {
-    margin: 10px 0;
-    padding: 10px 20px;
-  }
-
-  nav.show {
-    display: flex;
+  .card-content a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
 }
 
@@ -265,40 +252,13 @@ header nav {
   }
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-nav a {
-  margin-left: 20px;
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-nav a:hover {
-  color: #ff9900;
-}
-.hero {
-  background: linear-gradient(135deg, #ffd700, #ff9900);
-  padding: 60px 20px;
-  text-align: center;
-  color: #232f3e;
-  animation: slideDown 1s ease-in-out;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  display: inline-block;
-  white-space: normal;
-}
-.hero p {
-  font-size: 1.2rem;
-  display: inline-block;
-  white-space: normal;
-}
 @keyframes slideDown {
-  from { transform: translateY(-100px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
